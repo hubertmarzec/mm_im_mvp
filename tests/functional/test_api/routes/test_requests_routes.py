@@ -7,7 +7,7 @@ client = TestClient(app)
 
 @pytest.mark.functional
 def describe_get_request():
-    def test_will_return_success_with_valid_request_id():
+    def will_return_success_with_valid_request_id():
         request_id = "test-id"
         response = client.get(f"/api/v1/request/{request_id}")
         assert response.status_code == 200
@@ -15,7 +15,7 @@ def describe_get_request():
         assert data["request_id"] == request_id
         assert data["status"] == "pending"
     
-    def test_will_return_error_with_missing_request_id():
+    def will_return_error_with_missing_request_id():
         request_id = "invalid-id"
         response = client.get(f"/api/v1/request/{request_id}")
         assert response.status_code == 404
@@ -23,7 +23,7 @@ def describe_get_request():
 
 
 def describe_get_request_list():
-    def test_will_return_success_with_valid_request_list():
+    def will_return_success():
         response = client.get("/api/v1/request")
         assert response.status_code == 200
         data = response.json()
