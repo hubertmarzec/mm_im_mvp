@@ -1,6 +1,5 @@
 from fastapi import APIRouter, HTTPException
 from ..models.schemas import (
-    RequestCreate,
     RequestResponse,
     RequestList
 )
@@ -22,7 +21,14 @@ async def get_request(request_id: str):
 
 @router.get("/request", response_model=RequestList)
 async def list_requests():
-    requests = list(requests_store.values())
+    # Example response with one request
+    example_request = RequestResponse(
+        request_id="abc",
+        status="pending",
+        result=None
+    )
+    
+    requests = [example_request]  # Lista z jednym przykładowym requestem
     return RequestList(
         requests=requests,
         total=len(requests)

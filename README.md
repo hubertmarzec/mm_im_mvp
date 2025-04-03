@@ -8,5 +8,5 @@ pip install -r requirements.txt
 
 ```bash
 source. venv/bin/activate
-uvicorn app.main:app --reload
+uvicorn src.api.main:app --reload
 ```
