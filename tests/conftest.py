@@ -26,3 +26,7 @@ def pytest_itemcollected(item):
             parts[1] = parts[1][5:]  # Remove "test_" prefix
         item._nodeid = "::".join(parts)
     
+    # Remove "describe_" prefix in parts[1]
+    if parts[1].startswith("describe_"):
+        parts[1] = parts[1][9:]
+    item._nodeid = "::".join(parts)

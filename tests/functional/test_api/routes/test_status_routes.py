@@ -4,7 +4,7 @@ from src.api.main import app
 
 client = TestClient(app)
 
-@pytest.mark.functional
+
 class TestStatusRoutes:
     def test_healthcheck(self):
         response = client.get("/api/v1/healthcheck")
