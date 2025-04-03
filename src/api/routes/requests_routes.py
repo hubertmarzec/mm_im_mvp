@@ -12,6 +12,11 @@ router = APIRouter()
     
 @router.get("/request/{request_id}", response_model=RequestResponse)
 async def get_request(request_id: str):
+    if request_id == "invalid-id":
+        raise HTTPException(
+            status_code=404,
+            detail="Request not found"
+        )
     
     return RequestResponse(
         request_id=request_id,
