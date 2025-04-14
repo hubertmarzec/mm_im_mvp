@@ -1,5 +1,5 @@
 import pytest
-from src.shared_services.implementations.azure_ocr_service import AzureOcrService
+from src.shared_services.ocr.implementations.azure_ocr_service import AzureOcrService
 
 
 def test_extract_text_from_file():
