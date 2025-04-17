@@ -10,3 +10,12 @@ pip install -r requirements.txt
 source. venv/bin/activate
 uvicorn src.api.main:app --reload
 ```
+
+# run tests
+```
+pytest
+```
+#watch tests
+```
+ptw
+```
