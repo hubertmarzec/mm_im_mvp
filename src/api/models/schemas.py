@@ -11,6 +11,7 @@ class RequestResponse(BaseModel):
     completed_at: Optional[datetime] = None
     result: Optional[dict] = None
 
+
 class RequestList(BaseModel):
     requests: list[RequestResponse]
     total: int

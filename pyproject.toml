@@ -25,4 +25,12 @@ exclude = [
 known-first-party = ["src", "tests"]
 
 [tool.ruff.lint.mccabe]
-max-complexity = 10 
+max-complexity = 10
+
+[tool.ruff.format]
+# Use double quotes for strings
+quote-style = "double"
+
+# Indent with 4 spaces
+indent-style = "space"
+line-ending = "auto" 

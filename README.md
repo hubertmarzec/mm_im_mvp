@@ -28,3 +28,12 @@ ruff check .
 # Auto-fix issues when possible
 ruff check --fix .
 ```
+
+# formatting
+```bash
+# Format your code
+ruff format .
+
+# Check formatting issues without making changes
+ruff format . --check
+```

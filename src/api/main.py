@@ -13,11 +13,12 @@ async def lifespan(app: FastAPI):
     # Shutdown: czyszczenie zasobów
     pass
 
+
 app = FastAPI(
     title="Input Management API",
     description="API for managing PC input devices",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
 )
 
 # CORS configuration
@@ -30,11 +31,7 @@ app.add_middleware(
 )
 
 # Status routes - no auth required
-app.include_router(
-    status_routes.router,
-    prefix="/api/v1",
-    tags=["status"]
-)
+app.include_router(status_routes.router, prefix="/api/v1", tags=["status"])
 
 # Request routes - require authentication
 app.include_router(

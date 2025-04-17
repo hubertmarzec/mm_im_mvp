@@ -12,7 +12,4 @@ def describe_healthcheck():
         data = response.json()
         assert data["status"] == "ok"
         assert "timestamp" in data
-        assert data["service"] == "input-management-api" 
-
-
-        
+        assert data["service"] == "input-management-api"
