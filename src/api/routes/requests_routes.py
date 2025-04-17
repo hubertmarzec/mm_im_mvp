@@ -1,8 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from ..models.schemas import (
-    RequestResponse,
-    RequestList
-)
+
+from ..models.schemas import RequestList, RequestResponse
 
 router = APIRouter()
 

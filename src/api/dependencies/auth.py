@@ -1,5 +1,7 @@
-from fastapi import Header, HTTPException
 from typing import Optional
+
+from fastapi import Header, HTTPException
+
 
 async def verify_api_key(x_api_key: Optional[str] = Header(None)):
     if x_api_key is None:
