@@ -1,0 +1,28 @@
+[tool.ruff]
+# Enable Pyflakes (`F`), pycodestyle (`E`), isort (`I`), and McCabe complexity (`C90`)
+lint.select = ["E", "F", "I", "C90"]
+
+# Assume Python 3.10
+target-version = "py310"
+
+# Line length is set to 100 characters
+line-length = 100
+
+# Allow unused variables when underscore-prefixed
+lint.ignore = ["E203", "E501"]
+
+# Exclude directories and files
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src", "tests"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10 

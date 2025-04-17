@@ -1,4 +1,3 @@
-import pytest
 from src.shared_services.ocr.implementations.azure_ocr_service import AzureOcrService
 
 

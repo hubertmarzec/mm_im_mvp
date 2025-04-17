@@ -19,3 +19,12 @@ pytest
 ```
 ptw
 ```
+
+# linting
+```bash
+# Check your code
+ruff check .
+
+# Auto-fix issues when possible
+ruff check --fix .
+```

@@ -1,7 +1,6 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routes import requests_routes, status_routes
-from .dependencies.auth import verify_api_key
 from contextlib import asynccontextmanager
 
 @asynccontextmanager

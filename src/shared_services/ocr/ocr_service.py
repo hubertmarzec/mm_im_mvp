@@ -1,6 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Union
-from pathlib import Path
 
 
 class OcrService(ABC):
