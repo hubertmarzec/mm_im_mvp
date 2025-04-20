@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## CODING_PRACTICES
+
+### Guidelines for SUPPORT_LEVEL
+
+#### SUPPORT_EXPERT
+
+- Favor elegant, maintainable solutions over verbose code. Assume understanding of language idioms and design patterns.
+- Highlight potential performance implications and optimization opportunities in suggested code.
+- Frame solutions within broader architectural contexts and suggest design alternatives when appropriate.
+- Focus comments on 'why' not 'what' - assume code readability through well-named functions and variables.
+- Proactively address edge cases, race conditions, and security considerations without being prompted.
+- When debugging, provide targeted diagnostic approaches rather than shotgun solutions.
+- Suggest comprehensive testing strategies rather than just example tests, including considerations for mocking, test organization, and coverage.
+
+### Guidelines for ARCHITECTURE
+
+#### CLEAN_ARCHITECTURE
+
+- Strictly separate code into layers: entities, use cases, interfaces, and frameworks
+- Ensure dependencies point inward, with inner layers having no knowledge of outer layers
+- Implement domain entities that encapsulate {{business_rules}} without framework dependencies
+- Use interfaces (ports) and implementations (adapters) to isolate external dependencies
+- Create use cases that orchestrate entity interactions for specific business operations
+- Implement mappers to transform data between layers to maintain separation of concerns
+  
+#### DDD
+
+- Define bounded contexts to separate different parts of the domain with clear boundaries
+- Implement ubiquitous language within each context to align code with business terminology
+- Create rich domain models with behavior, not just data structures, for {{core_domain_entities}}
+- Use value objects for concepts with no identity but defined by their attributes
+- Implement domain events to communicate between bounded contexts
+- Use aggregates to enforce consistency boundaries and transactional integrity
+
+#### MICROSERVICES
+
+- Design services around business capabilities rather than technical functions
+- Implement API gateways to handle cross-cutting concerns for {{client_types}}
+- Use event-driven communication for asynchronous operations between services
+- Implement circuit breakers to handle failures gracefully in distributed systems
+- Design for eventual consistency in data that spans multiple services
+- Implement service discovery and health checks for robust system operation
