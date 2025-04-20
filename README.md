@@ -6,7 +6,6 @@
 - [Email Classification System](#email-classification-system)
   - [📋 Table of Contents](#-table-of-contents)
   - [🔍 Project Description](#-project-description)
-    - [Key Features](#key-features)
   - [💻 Tech Stack](#-tech-stack)
     - [Frontend](#frontend)
     - [Backend](#backend)
@@ -20,21 +19,13 @@
     - [Linting](#linting)
     - [Formatting](#formatting)
   - [🔭 Project Scope](#-project-scope)
-    - [Included](#included)
-    - [Not Included](#not-included)
+    - [Included Features](#included-features)
+    - [Excluded Features](#excluded-features)
   - [📊 Project Status](#-project-status)
   - [📄 License](#-license)
 
 ## 🔍 Project Description
-The Email Classification System is designed primarily for law firms to organize and classify email attachments efficiently. The system allows users to submit emails in EML format, automatically extracts metadata, and classifies attachments based on predefined categories. This automation significantly reduces the time spent manually searching and organizing documents, improving overall efficiency.
-
-### Key Features
-- Secure user authentication
-- Email submission with attachment support (pdf, docs, tiff, jpg)
-- Automatic metadata extraction (sender, recipient, date, subject)
-- Attachment classification using predefined categories
-- Filtering and sorting capabilities
-- GDPR compliance with encryption in transit and at rest
+The Email Classification System is designed primarily for law firms to streamline the process of organizing and classifying email attachments. The system allows users to submit each email in EML format, automatically extracting metadata such as sender, recipient, date, and subject. Attachments (supported formats: pdf, docs, tiff, jpg) are automatically classified into predefined categories to facilitate rapid document retrieval and improved efficiency. The system ensures GDPR compliance with data encryption both in transit and at rest.
 
 ## 💻 Tech Stack
 
@@ -59,30 +50,36 @@ The Email Classification System is designed primarily for law firms to organize 
 
 ### Prerequisites
 - Python 3.10 or higher
+- Node.js (as specified in the .nvmrc file)
 - pip (Python package manager)
 
 ### Installation
-
-1. Clone the repository
+1. Clone the repository:
    ```bash
    git clone [repository-url]
    cd [repository-name]
    ```
 
-2. Create and activate a virtual environment
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+2. Setup the Python backend:
+   - Create and activate a virtual environment:
+     ```bash
+     python -m venv venv
+     source venv/bin/activate  # On Windows: venv\Scripts\activate
+     ```
+   - Install Python dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
 
-3. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. Setup the frontend:
+   - Ensure your Node.js version matches the one specified in the `.nvmrc` file.
+   - Install frontend dependencies:
+     ```bash
+     npm install
+     ```
 
 ### Running the Application
-
-Start the FastAPI server with hot-reload:
+Start the FastAPI backend server with automatic reload:
 ```bash
 uvicorn src.api.main:app --reload
 ```
@@ -90,61 +87,58 @@ uvicorn src.api.main:app --reload
 ## 📝 Available Scripts
 
 ### Running Tests
-Execute all tests:
-```bash
-pytest
-```
-
-Watch tests (automatically run tests when files change):
-```bash
-ptw
-```
+- Run all tests:
+  ```bash
+  pytest
+  ```
+- Watch tests (automatically run tests on file changes):
+  ```bash
+  ptw
+  ```
 
 ### Linting
-Check your code:
-```bash
-ruff check .
-```
-
-Auto-fix issues when possible:
-```bash
-ruff check --fix .
-```
+- Check code for linting issues:
+  ```bash
+  ruff check .
+  ```
+- Auto-fix linting issues where possible:
+  ```bash
+  ruff check --fix .
+  ```
 
 ### Formatting
-Format your code:
-```bash
-ruff format .
-```
-
-Check formatting issues without making changes:
-```bash
-ruff format . --check
-```
+- Format the code:
+  ```bash
+  ruff format .
+  ```
+- Check formatting without modifying files:
+  ```bash
+  ruff format . --check
+  ```
 
 ## 🔭 Project Scope
 
-### Included
+### Included Features
 - Secure user authentication
-- Email submission in EML format
-- Metadata extraction
-- Attachment classification
-- Data storage
-- Results viewing with filtering and sorting
-- Attachment download
+- Email submission in EML format with attachment support
+- Automatic extraction of email metadata (sender, recipient, date, subject)
+- Automatic classification of attachments using predefined categories
+- Data storage and organization of emails and attachments
+- Filtering and sorting functionality for fetched records
+- Attachment download functionality
 
-### Not Included
-- Comprehensive user account management
-- Support for non-EML email formats
-- Classification of email content (focus is on attachments only)
-- Mass parallel processing (initial performance: 1 attachment per second)
-- Mobile version
+### Excluded Features
+- Comprehensive user account management (e.g., password reset, profile editing)
+- Support for email formats other than EML
+- Classification of the email body content (focus is on attachments)
+- Mass parallel processing (current performance benchmark: 1 attachment per second)
+- Mobile application support
 
 ## 📊 Project Status
-The project is currently in MVP (Minimum Viable Product) phase, focusing on achieving:
-- At least 90% accuracy in attachment classification
-- Full GDPR compliance
-- Processing rate of 1 attachment per second
+The project is currently in the MVP (Minimum Viable Product) stage, with the following goals:
+- Achieve at least 90% accuracy in attachment classification
+- Ensure full GDPR compliance with encryption for data in transit and at rest
+- Maintain a processing rate of 1 attachment per second
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
