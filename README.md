@@ -23,6 +23,7 @@
     - [Excluded Features](#excluded-features)
   - [📊 Project Status](#-project-status)
   - [📄 License](#-license)
+  - [📁 Project Structure](#-project-structure)
 
 ## 🔍 Project Description
 The Email Classification System is designed primarily for law firms to streamline the process of organizing and classifying email attachments. The system allows users to submit each email in EML format, automatically extracting metadata such as sender, recipient, date, and subject. Attachments (supported formats: pdf, docs, tiff, jpg) are automatically classified into predefined categories to facilitate rapid document retrieval and improved efficiency. The system ensures GDPR compliance with data encryption both in transit and at rest.
@@ -142,3 +143,25 @@ The project is currently in the MVP (Minimum Viable Product) stage, with the fol
 
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📁 Project Structure
+
+```
+.
+├── src/                    # Source code
+│   ├── api/               # FastAPI endpoints and API-related code
+│   ├── input_management/  # Email and attachment processing logic
+│   └── shared_services/   # Shared utilities and services
+│
+├── docs/                  # Documentation
+│   ├── api/              # API documentation and specifications
+│   ├── adr/              # Architecture Decision Records
+│   ├── architecture/     # Architecture diagrams and descriptions
+│   ├── project/          # Project-related documentation (PRD, tech stack)
+│   └── setup/            # Setup and deployment guides
+│
+├── tests/                # Test files
+├── requirements.txt      # Python dependencies
+├── pyproject.toml       # Python project configuration
+└── pytest.ini          # Pytest configuration
+```

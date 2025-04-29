@@ -1,6 +1,9 @@
-from src.shared_services.ocr.implementations.azure_ocr_service import AzureOcrService
+import pytest
+
+from ..implementations.azure_ocr_service import AzureOcrService
 
 
+@pytest.mark.unit
 def test_extract_text_from_file():
     # Arrange
     service = AzureOcrService()

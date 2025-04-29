@@ -1,3 +1,4 @@
+import pytest
 from fastapi.testclient import TestClient
 
 from src.api.main import app
@@ -5,6 +6,7 @@ from src.api.main import app
 client = TestClient(app)
 
 
+@pytest.mark.functional
 def describe_healthcheck():
     def will_return_success():
         response = client.get("/api/v1/healthcheck")
