@@ -2,13 +2,11 @@
 # Enable Pyflakes (`F`), pycodestyle (`E`), isort (`I`), and McCabe complexity (`C90`)
 target-version = "py310"
 
-# Line length is set to 100 characters
-line-length = 100
+# Line length is set to 200 characters
+line-length = 200
 
-# Allow unused variables when underscore-prefixed
+[tool.ruff.lint]
 select = ["E", "F", "I", "N", "B", "A", "C4", "UP", "W"]
-
-# Exclude directories and files
 exclude = [
     ".bzr",
     ".git",

@@ -1,9 +1,7 @@
-from typing import Optional
-
 from fastapi import Header, HTTPException
 
 
-async def verify_api_key(x_api_key: Optional[str] = Header(None)):
+async def verify_api_key(x_api_key: str | None = Header(None)):
     if x_api_key is None:
         raise HTTPException(status_code=401, detail="API Key is missing")
 

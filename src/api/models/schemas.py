@@ -1,5 +1,4 @@
 from datetime import datetime
-from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -8,8 +7,8 @@ class RequestResponse(BaseModel):
     request_id: str
     status: str = Field(..., description="Status of request (pending, completed, failed)")
     created_at: datetime = Field(default_factory=datetime.now)
-    completed_at: Optional[datetime] = None
-    result: Optional[dict] = None
+    completed_at: datetime | None = None
+    result: dict | None = None
 
 
 class RequestList(BaseModel):
