@@ -16,6 +16,7 @@
     - [Running the Application](#running-the-application)
   - [📝 Available Scripts](#-available-scripts)
     - [Running Tests](#running-tests)
+    - [Pre-commit Hooks](#pre-commit-hooks)
     - [Linting](#linting)
     - [Formatting](#formatting)
   - [🔭 Project Scope](#-project-scope)
@@ -71,6 +72,10 @@ The Email Classification System is designed primarily for law firms to streamlin
      ```bash
      pip install -r requirements.txt
      ```
+   - Install development dependencies (optional, for contributors):
+     ```bash
+     pip install -r requirements-dev.txt
+     ```
 
 3. Setup the frontend:
    - Ensure your Node.js version matches the one specified in the `.nvmrc` file.
@@ -95,6 +100,20 @@ uvicorn src.api.main:app --reload
 - Watch tests (automatically run tests on file changes):
   ```bash
   ptw
+  ```
+
+### Pre-commit Hooks
+- Install pre-commit:
+  ```bash
+  pip install pre-commit
+  ```
+- Install git hooks:
+  ```bash
+  pre-commit install
+  ```
+- Run hooks on all files:
+  ```bash
+  pre-commit run --all-files
   ```
 
 ### Linting
