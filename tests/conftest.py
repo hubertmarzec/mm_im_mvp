@@ -6,6 +6,11 @@ from fastapi.testclient import TestClient
 from src.api.main import app
 
 
+def pytest_addoption(parser):
+    """Add command line options for all tests."""
+    parser.addoption("--env", action="store", help="Environment to run E2E tests against: dev, qa, acc, etc.")
+
+
 @pytest.fixture
 def client():
     return TestClient(app)
