@@ -1,1 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="E2E Tests" errors="0" failures="0" skipped="0" tests="4" time="0.010" timestamp="2025-06-19T23:14:06.565163" hostname="mac-1.home"><testcase classname="api_endpoints.request" name="Will auth with env" time="0.001"><properties><property name="test_environment" value="dev" /><property name="test_file" value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" /><property name="test_timestamp" value="2025-06-19T23:14:06.571385" /><property name="client_id" value="dev-client-id" /><property name="secret_id" value="dev-secret" /></properties></testcase><testcase classname="api_endpoints.request" name="Will pass parametrized test[3+5-8]" time="0.000"><properties><property name="test_environment" value="dev" /><property name="test_file" value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" /><property name="test_timestamp" value="2025-06-19T23:14:06.573773" /><property name="param_test_input" value="3+5" /><property name="param_expected" value="8" /></properties></testcase><testcase classname="api_endpoints.request" name="Will pass parametrized test[2+4-6]" time="0.000"><properties><property name="test_environment" value="dev" /><property name="test_file" value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" /><property name="test_timestamp" value="2025-06-19T23:14:06.574257" /><property name="param_test_input" value="2+4" /><property name="param_expected" value="6" /></properties></testcase><testcase classname="api_endpoints.request" name="Will pass parametrized test[6*9-54]" time="0.000"><properties><property name="test_environment" value="dev" /><property name="test_file" value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" /><property name="test_timestamp" value="2025-06-19T23:14:06.574654" /><property name="param_test_input" value="6*9" /><property name="param_expected" value="54" /></properties></testcase></testsuite></testsuites>
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="E2E Tests" errors="0" failures="0" skipped="0" tests="5" time="0.011"
+        timestamp="2025-06-20T00:05:11.835825" hostname="mac-1.home">
+        <testcase classname="api_endpoints.request" name="Will auth with env" time="0.002">
+            <properties>
+                <property name="test_environment" value="dev" />
+                <property name="test_file"
+                    value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" />
+                <property name="test_timestamp" value="2025-06-20T00:05:11.842225" />
+                <property name="client_id" value="dev-client-id" />
+                <property name="secret_id" value="dev-secret" />
+                <property name="param_logs2 " value="" />
+                <property name="param_logs" value="No logs captured" />
+            </properties>
+        </testcase>
+        <testcase classname="api_endpoints.request" name="Logging capture" time="0.000">
+            <properties>
+                <property name="test_environment" value="dev" />
+                <property name="test_file"
+                    value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" />
+                <property name="test_timestamp" value="2025-06-20T00:05:11.844725" />
+                <property name="param_logs2 " value="" />
+                <property name="param_logs" value="No logs captured" />
+            </properties>
+        </testcase>
+        <testcase classname="api_endpoints.request" name="Will pass parametrized test[3+5-8]"
+            time="0.000">
+            <properties>
+                <property name="test_environment" value="dev" />
+                <property name="test_file"
+                    value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" />
+                <property name="test_timestamp" value="2025-06-20T00:05:11.845242" />
+                <property name="param_test_input" value="3+5" />
+                <property name="param_expected" value="8" />
+                <property name="param_logs2 " value="" />
+                <property name="param_logs" value="No logs captured" />
+            </properties>
+        </testcase>
+        <testcase classname="api_endpoints.request" name="Will pass parametrized test[2+4-6]"
+            time="0.000">
+            <properties>
+                <property name="test_environment" value="dev" />
+                <property name="test_file"
+                    value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" />
+                <property name="test_timestamp" value="2025-06-20T00:05:11.845721" />
+                <property name="param_test_input" value="2+4" />
+                <property name="param_expected" value="6" />
+                <property name="param_logs2 " value="" />
+                <property name="param_logs" value="No logs captured" />
+            </properties>
+        </testcase>
+        <testcase classname="api_endpoints.request" name="Will pass parametrized test[6*9-54]"
+            time="0.000">
+            <properties>
+                <property name="test_environment" value="dev" />
+                <property name="test_file"
+                    value="/Users/hubert.marzec/code/im/tests/e2e/test_api_endpoints.py" />
+                <property name="test_timestamp" value="2025-06-20T00:05:11.846138" />
+                <property name="param_test_input" value="6*9" />
+                <property name="param_expected" value="54" />
+                <property name="param_logs2 " value="" />
+                <property name="param_logs" value="No logs captured" />
+            </properties>
+        </testcase>
+    </testsuite>
+</testsuites>

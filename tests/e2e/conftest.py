@@ -1,3 +1,4 @@
+import logging
 import os
 from datetime import datetime
 from pathlib import Path
@@ -59,7 +60,7 @@ def auth_config():
 
 # Fixture to automatically inject record_property for parametrized tests
 @pytest.fixture(autouse=True)
-def auto_record_parameters(request, record_property):
+def auto_record_parameters(request, record_property, caplog):
     """
     Automatically record all parametrized test parameters as properties.
     This fixture runs for every test and automatically logs parametrized data for e2e tests.
@@ -74,6 +75,9 @@ def auto_record_parameters(request, record_property):
 
     # Only inject for e2e tests
     if is_e2e_test:
+        # Set caplog level to capture all log messages
+        caplog.set_level(logging.INFO)
+
         # Record environment information
         env = request.config.getoption("--env", default="unknown")
         record_property("test_environment", env)
@@ -86,3 +90,14 @@ def auto_record_parameters(request, record_property):
         if hasattr(request.node, "callspec"):
             for param_name, param_value in request.node.callspec.params.items():
                 record_property(f"param_{param_name}", str(param_value))
+
+        # Yield to let the test run
+        yield
+
+        # After the test runs, record the captured logs
+        if caplog.text:
+            record_property("param_logs", caplog.text)
+            # print(f"Captured logs for {request.node.name}: {caplog.text}")
+        else:
+            record_property("param_logs", "No logs captured")
+            # print(f"No logs captured for {request.node.name}")
