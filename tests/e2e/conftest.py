@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from pathlib import Path
 
 import pytest
@@ -54,3 +55,34 @@ def auth_config():
         raise ValueError("Missing E2E credentials. Ensure environment file is loaded with --env parameter.")
 
     return {"client_id": client_id, "secret_id": secret_id}
+
+
+# Fixture to automatically inject record_property for parametrized tests
+@pytest.fixture(autouse=True)
+def auto_record_parameters(request, record_property):
+    """
+    Automatically record all parametrized test parameters as properties.
+    This fixture runs for every test and automatically logs parametrized data for e2e tests.
+    """
+    # Check if this is an e2e test
+    is_e2e_test = False
+    if hasattr(request.node, "iter_markers"):
+        for marker in request.node.iter_markers():
+            if marker.name == "e2e":
+                is_e2e_test = True
+                break
+
+    # Only inject for e2e tests
+    if is_e2e_test:
+        # Record environment information
+        env = request.config.getoption("--env", default="unknown")
+        record_property("test_environment", env)
+
+        # Record test metadata
+        record_property("test_file", str(request.node.fspath))
+        record_property("test_timestamp", datetime.now().isoformat())
+
+        # Record parametrized test parameters
+        if hasattr(request.node, "callspec"):
+            for param_name, param_value in request.node.callspec.params.items():
+                record_property(f"param_{param_name}", str(param_value))

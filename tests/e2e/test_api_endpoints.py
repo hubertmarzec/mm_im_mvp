@@ -1,4 +1,8 @@
+import logging
+
 import pytest
+
+logger = logging.getLogger(__name__)
 
 
 @pytest.mark.e2e
@@ -10,9 +14,17 @@ def describe_request():
         record_property("client_id", client_id)
         record_property("secret_id", secret_id)
 
+        logger.info("Additional evidence from test execution")
         # Your test logic
         assert client_id is not None
         assert secret_id is not None
+        logger.info("Are important data which should be visible in the report")
+
+    # def will_fail():
+    #     logger.info("Example of failing test")
+    #     # Your test logic
+    #     assert True is False
+    #     assert secret_id is not None
 
     @pytest.mark.parametrize("test_input,expected", [("3+5", 8), ("2+4", 6), ("6*9", 54)])
     def will_pass_parametrized_test(test_input, expected):
