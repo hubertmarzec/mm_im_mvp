@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="E2E Tests" errors="0" failures="0" skipped="0" tests="4" time="0.008"
+        timestamp="2025-06-19T22:03:15.629627" hostname="mac-1.home">
+        <testcase classname="api_endpoints.request" name="Will auth with env" time="0.001">
+            <properties>
+                <property name="client_id" value="dev-client-id" />
+                <property name="secret_id" value="dev-secret" />
+            </properties>
+        </testcase>
+        <testcase classname="api_endpoints.request" name="Will pass parametrized test[3+5-8]"
+            time="0.000" />
+        <testcase classname="api_endpoints.request" name="Will pass parametrized test[2+4-6]"
+            time="0.000" />
+        <testcase classname="api_endpoints.request" name="Will pass parametrized test[6*9-54]"
+            time="0.000" />
+    </testsuite>
+</testsuites>
