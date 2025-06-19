@@ -90,14 +90,3 @@ def auto_record_parameters(request, record_property, caplog):
         if hasattr(request.node, "callspec"):
             for param_name, param_value in request.node.callspec.params.items():
                 record_property(f"param_{param_name}", str(param_value))
-
-        # Yield to let the test run
-        yield
-
-        # After the test runs, record the captured logs
-        if caplog.text:
-            record_property("param_logs", caplog.text)
-            # print(f"Captured logs for {request.node.name}: {caplog.text}")
-        else:
-            record_property("param_logs", "No logs captured")
-            # print(f"No logs captured for {request.node.name}")
