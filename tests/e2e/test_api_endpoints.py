@@ -22,7 +22,7 @@ def describe_request():
         assert secret_id is not None
         logger.info("Are important data which should be visible in the report")
 
-        record_property("param_logs", caplog.text)
+        record_property("test_logs", caplog.text)
 
     # def will_fail():
     #     logger.info("Example of failing test")
@@ -39,4 +39,4 @@ def describe_request():
         assert eval(test_input) == expected
         logger.info(f"Test passed: {test_input} = {expected}")
 
-        record_property("param_logs", caplog.text)
+        record_property("test_logs", caplog.text)
