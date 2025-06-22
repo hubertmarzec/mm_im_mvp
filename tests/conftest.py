@@ -3,7 +3,7 @@ import re
 import pytest
 from fastapi.testclient import TestClient
 
-from src.api.main import app
+from src.main import app
 
 
 def pytest_addoption(parser):

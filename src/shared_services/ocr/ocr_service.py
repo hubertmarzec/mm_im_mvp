@@ -1,20 +1,27 @@
 from abc import ABC, abstractmethod
 
+from fastapi import UploadFile
+
+from .ocr_result import OcrResult
+
 
 class OcrService(ABC):
     """
-    Simple interface for OCR (Optical Character Recognition) services.
+    Interface for OCR (Optical Character Recognition) services.
     """
 
     @abstractmethod
-    def extract_text_from_file(self, file_path: str) -> str:
+    async def extract_text_from_file(self, file: UploadFile) -> OcrResult:
         """
-        Extract text from a file.
+        Extract text from an uploaded file.
 
         Args:
-            file_path: Path to the document file
+            file: FastAPI UploadFile object containing the document
 
         Returns:
-            Extracted text as string
+            OcrResult object containing extracted text and metadata
+
+        Raises:
+            OcrError: When there are issues with the file or processing fails
         """
         pass

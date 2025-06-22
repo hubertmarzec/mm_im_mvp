@@ -11,6 +11,12 @@ class RequestResponse(BaseModel):
     result: dict | None = None
 
 
+class RequestCreate(BaseModel):
+    """Schema for creating a new request"""
+
+    pass
+
+
 class RequestList(BaseModel):
     requests: list[RequestResponse]
     total: int
