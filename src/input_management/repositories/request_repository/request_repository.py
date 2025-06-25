@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Optional
+
+from src.models import Request
 
 
 class RequestRepository(ABC):
@@ -8,15 +10,15 @@ class RequestRepository(ABC):
     """
 
     @abstractmethod
-    async def create(self, request_data: dict[str, Any]) -> str:
+    async def create(self, request: Request) -> Request:
         """
         Create a new request record.
 
         Args:
-            request_data: Dictionary containing request data
+            request: Request entity to create
 
         Returns:
-            str: The ID of the created request
+            Request: The created request entity
 
         Raises:
             RequestRepositoryError: When database operation fails
@@ -24,7 +26,7 @@ class RequestRepository(ABC):
         pass
 
     @abstractmethod
-    async def get_by_id(self, request_id: str) -> dict[str, Any] | None:
+    async def get_by_id(self, request_id: str) -> Optional[Request]:
         """
         Retrieve a request by its ID.
 
@@ -32,7 +34,7 @@ class RequestRepository(ABC):
             request_id: The ID of the request to retrieve
 
         Returns:
-            dict[str, Any] | None: The request data or None if not found
+            Request | None: The request entity or None if not found
 
         Raises:
             RequestRepositoryError: When database operation fails
@@ -40,13 +42,12 @@ class RequestRepository(ABC):
         pass
 
     @abstractmethod
-    async def update(self, request_id: str, update_data: dict[str, Any]) -> bool:
+    async def update(self, request: Request) -> bool:
         """
         Update an existing request.
 
         Args:
-            request_id: The ID of the request to update
-            update_data: Dictionary containing fields to update
+            request: Request entity to update
 
         Returns:
             bool: True if update was successful, False otherwise

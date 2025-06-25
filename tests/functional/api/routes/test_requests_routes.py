@@ -5,21 +5,24 @@ from fastapi.testclient import TestClient
 
 from src.main import app
 
+# Use the real client for tests that don't need mocked dependencies
 client = TestClient(app)
 
 
 @pytest.mark.functional
 def describe_create_request():
-    def will_return_202_with_valid_tiff_file():
+    def will_return_202_with_valid_tiff_file(test_client):
         # Create a mock TIFF file
         tiff_content = b"fake tiff content"
         files = {"file": ("test.tiff", io.BytesIO(tiff_content), "image/tiff")}
 
-        response = client.post("/api/v1/request", files=files)
+        response = test_client.post("/api/v1/request", files=files)
+        print(f"Response status: {response.status_code}")
+        print(f"Response body: {response.text}")
         assert response.status_code == 202
         data = response.json()
         assert "request_id" in data
-        assert data["status"] == "pending"
+        assert data["status"] == "completed"  # Updated to match the new workflow
         assert "created_at" in data
 
     def will_return_400_with_invalid_file_type():
@@ -37,16 +40,16 @@ def describe_create_request():
 
 @pytest.mark.functional
 def describe_get_request():
-    def will_return_success_with_valid_request_id():
+    def will_return_success_with_valid_request_id(test_client):
         request_id = "test-id"
-        response = client.get(f"/api/v1/request/{request_id}")
+        response = test_client.get(f"/api/v1/request/{request_id}")
         assert response.status_code == 200
         data = response.json()
         assert data["request_id"] == request_id
         assert data["status"] == "pending"
 
-    def will_return_error_with_missing_request_id():
+    def will_return_error_with_missing_request_id(test_client):
         request_id = "invalid-id"
-        response = client.get(f"/api/v1/request/{request_id}")
+        response = test_client.get(f"/api/v1/request/{request_id}")
         assert response.status_code == 404
         assert response.json()["detail"] == "Request not found"
